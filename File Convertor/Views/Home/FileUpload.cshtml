@@ -1,0 +1,29 @@
+﻿@model File_Convertor.Models.FileUploadViewModel
+
+@{
+    ViewData["Title"] = "Upload Files";
+}
+
+<h2>Upload Files</h2>
+
+<form asp-action="FileUpload" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Files" class="control-label"></label>
+        <input asp-for="Files" class="form-control" type="file" multiple />
+        <span asp-validation-for="Files" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Upload" class="btn btn-primary" />
+    </div>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-success">
+        @ViewBag.Message
+    </div>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
