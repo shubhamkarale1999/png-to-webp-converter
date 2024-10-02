@@ -4,6 +4,7 @@ using File_Convertor.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace File_Convertor.Migrations
 {
     [DbContext(typeof(MovieCoreDBContext))]
-    partial class MovieCoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241001150556_FileConvertor_V2")]
+    partial class FileConvertor_V2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -63,7 +63,9 @@ namespace File_Convertor.Controllers
                 if (file.Length > 0 && Path.GetExtension(file.FileName).ToLower() == ".png")
                 {
                     // Generate new file name with .webp extension
-                    var webpFileName = Path.ChangeExtension(file.FileName, ".webp");
+                    string FileName = "PuzzleImg_" + DateTime.Now.ToString("yyyyMMdd_HHmmss_ffffff");
+                    string movieName = Path.GetFileName(file.FileName);
+                    var webpFileName = Path.ChangeExtension(FileName, ".webp");
                     var webpFilePath = Path.Combine(outputDirectory, webpFileName);
 
                     // Load the uploaded image
@@ -82,6 +84,7 @@ namespace File_Convertor.Controllers
                     var uploadedFile = new UploadedFile
                     {
                         FileName = webpFileName,
+                        MovieName =  movieName,
                         CreatedDate = DateTime.Now
                     };
                     _context.UploadedFiles.Add(uploadedFile);

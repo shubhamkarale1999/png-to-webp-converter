@@ -11,6 +11,8 @@ namespace File_Convertor.Models
         [MaxLength(255)]
         public string FileName { get; set; }
 
+        public string MovieName { get; set; }
+
         //[Required]
         public DateTime CreatedDate { get; set; }
     }
